@@ -439,3 +439,32 @@ $(".video").vide({
 });
 
 // VIDEO BACKGROUND END
+
+/* Send mail */
+
+function sendMail() {
+    var requested_by = $('#mc-email').val();
+    $.ajax({
+      type: 'POST',
+      url: 'https://mandrillapp.com/api/1.0/messages/send.json',
+      data: {
+      'key': '56ljFfsD9LPL-fFAbMDtTQ',
+      'message': {
+      'from_email': 'contato@delaedele.com.br',
+      'to': [
+              {
+               'email': 'contato@delaedele.com.br',
+               'name': 'Contato DD',
+               'type': 'to'
+              }
+            ],
+      'autotext': 'true',
+      'subject': 'Solicitação de convite',
+      'html': requested_by
+      }
+      }
+      }).done(function(response) {
+         console.log(response); // if you're into that sorta thing
+      });
+}
+
