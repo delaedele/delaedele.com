@@ -36,9 +36,6 @@ jQuery(window).load(function () {
 });
 
 
-
-
-
 /*---------------------------------------------------------*/
 /*  DOCUMENT READY                                         */
 /*---------------------------------------------------------*/
@@ -88,93 +85,6 @@ jQuery(document).ready(function () {
 	$('.buttons-tab li').on('click',function (){
 		$('.buttons-tab li').removeClass('active');
 		$(this).addClass('active');
-	});
-
-
-	/*---------------------------------------------------------*/
-	/*  OWN CAROUSEL FOR TABS                                  */
-	/*---------------------------------------------------------*/
-
-	$('#tab').owlCarousel({
-		items:1,
-		animateIn: 'owl-goDown-in',
-		animateOut: 'owl-goDown-out',
-		responsiveClass:true,
-		mouseDrag: false,
-		dots: false,
-		responsive:{
-			0:{dots:true,loop:true},
-			600:{nav:true,loop:true},
-			992:{nav:false}
-		}
-	});
-
-
-	/*---------------------------------------------------------*/
-	/*  OWN CAROUSEL FOR SCREESHOTS                            */
-	/*---------------------------------------------------------*/
-
-	$('#screenshots').owlCarousel({
-		margin:100,
-		loop:true,
-		nav:true,
-		center: true,
-		mouseDrag: false,
-		dots: false,
-		responsiveClass:true,
-		responsive:{
-			0:{items:2,nav:false,margin:30},
-			480:{items:2,margin:100},
-			800:{items:4},
-			1500:{items:6},
-			2200:{items:8}
-		}
-	});
-
-
-	/*---------------------------------------------------------*/
-	/*  OWN CAROUSEL FOR TESTIMONIALS                          */
-	/*---------------------------------------------------------*/
-
-	$('#testimonials').owlCarousel({
-		items:1,
-		animateIn: 'owl-goDown-in',
-		animateOut: 'owl-goDown-out',
-		responsiveClass:true,
-		mouseDrag: false,
-		dots:true,
-		loop:true,
-		nav:false,
-		autoplay:true,
-		autoplayTimeout:5000,
-		autoplayHoverPause:true
-	});
-
-
-	/*---------------------------------------------------------*/
-	/*  NIVO LIGHTBOX                                          */
-	/*---------------------------------------------------------*/
-
-	$('#screenshots a').nivoLightbox({
-		effect: 'fadeScale',
-	});
-
-	$('a.nivo-preview').nivoLightbox({
-		effect: 'fadeScale',
-	});
-
-
-	/*---------------------------------------------------------*/
-	/*  TWITTIE                                                */
-	/*---------------------------------------------------------*/
-
-	$('#twits').twittie({
-		dateFormat: '%b. %d, %Y',
-		// If you want to fetch tweets from specific Twitter list, you must define the list name in the list option and username of the list owner.
-		//username: 'vincentdignan',
-		//list: '',
-		template: '<div class="wow fadeInUpBig"><div class="container"><h3 class="pulse-hover">{{tweet}}</h3><div class="info"><!-- ***TWITTER ACCOUNT*** --><div class="author"><span class="icon icon-bullhorn"></span>{{screen_name}}</div><!-- ***AUTHOR*** --><div class="author hidden-xs"><span class="icon icon-head"></span>{{user_name}}</div><!-- ***DATE*** --><div class="date"><span class="icon icon-calendar"></span>{{date}}</div></div></div></div>',
-		count: 3
 	});
 
 
@@ -322,28 +232,6 @@ jQuery(document).ready(function () {
 
 	}
 
-	/*---------------------------------------------------------*/
-	/*  CLICK ACTIVE ACCORDION                                 */
-	/*---------------------------------------------------------*/
-
-	if ( $(window).width() >= 992) {
-		$(".responsive-accordion .active .responsive-accordion-head").click();
-	}
-
-
-	/*---------------------------------------------------------*/
-	/*  SLIDE BACKGROUND                                       */
-	/*---------------------------------------------------------*/
-	
-	$('#maximage').maximage({
-		cycleOptions: {
-			fx: 'fade',
-			speed: 4000,
-			timeout: 400
-		},
-		fillElement: '#home'
-	});
-
 }); //END DOCUMENT READY
 
 
@@ -423,22 +311,6 @@ $(window).on('resize', function(){
 
 // NAVBAR LI AUTOHEIGHT END
 
-
-
-
-
-/*---------------------------------------------------------*/
-/*  VIDEO BACKGROUND                                       */
-/*---------------------------------------------------------*/
-
-$(".video").vide({
-	'mp4': 'assets/videos/video-bg',
-	'webm': 'assets/videos/video-bg',
-	'ogv': 'assets/videos/video-bg',
-	'poster': 'assets/videos/video-bg',
-});
-
-// VIDEO BACKGROUND END
 
 /* Send mail */
 
