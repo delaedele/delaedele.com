@@ -144,7 +144,7 @@ h3 {
 }
 
 h4 {
-	font-size: 28px;
+	font-size: 26px;
 	font-weight: 300;
 }
 
@@ -1192,11 +1192,11 @@ header .btn-theme {
 }
 
 #subscription input {
-	color: rgba(255,255,255,0.6) !important;
-	font-size: 16px;
+	font-size: 18px;
+	font-weight: 500;
 	text-align: center;
 	padding-left: 6%;
-	color: #fff;
+	color: #ffffff;
 	border-radius: 50px 0 0 50px;
 	width: 90%;
 	display: inline-block;
@@ -1209,19 +1209,31 @@ header .btn-theme {
 }
 
 #subscription input::-webkit-input-placeholder {
-	color: rgba(255,255,255,0.6) !important;
+	color: rgba(255,255,255,1) !important;
+	font-weight: 500;
+	font-size: 18px;
+	text-transform: uppercase;
 }
 
 #subscription input:-moz-placeholder {
-	color: rgba(255,255,255,0.6) !important;
+	color: rgba(255,255,255,1) !important;
+	font-weight: 500;
+	font-size: 18px;
+	text-transform: uppercase;
 }
 
 #subscription input::-moz-placeholder {
-	color: rgba(255,255,255,0.6) !important;
+	color: rgba(255,255,255,1) !important;
+	font-weight: 500;
+	font-size: 18px;
+	text-transform: uppercase;
 }
 
 #subscription input:-ms-input-placeholder {
-	color: rgba(255,255,255,0.6) !important;
+	color: rgba(255,255,255,1) !important;
+	font-weight: 500;
+	font-size: 18px;
+	text-transform: uppercase;
 }
 
 #subscription input:focus {
@@ -1283,10 +1295,6 @@ header .btn-theme {
 }
 
 /* END */
-
-
-
-
 
 /*---------------------------------------------------------*/
 /*  SECTION 7 (PRICING)                                    */
@@ -1761,6 +1769,7 @@ footer .logo img {
 /* Slidedown effect */
 
 .overlay-slidedown {
+	background: rgba(146,209,183,0.9) !important;
 	visibility: hidden;
 	-webkit-transform: translateY(-100%);
 	-ms-transform: translateY(-100%);
@@ -1770,6 +1779,7 @@ footer .logo img {
 }
 
 .overlay-slidedown.open {
+	background: rgba(146,209,183,0.9) !important;
 	visibility: visible;
 	-webkit-transform: translateY(0%);
 	-ms-transform: translateY(0%);
@@ -2171,6 +2181,29 @@ button.close:hover {
 	font-size: 100px;
 	opacity: 0.8;
 	z-index: 1 !important;
+}
+
+#success-message, #fail-message{
+	display: none;
+	color: white;
+}
+
+#success-message .fa, #fail-message .fa{
+	margin-bottom: 20px;
+}
+
+#register-btn{
+	padding: 7px 15px;
+  margin-top: 11px;
+  background: #92d1b7;
+  border: none;
+  color: white;
+  font-weight: 800;
+  margin-left: 20px;
+}
+
+#register-btn:hover, #menu .active #register-btn{
+	color: white;
 }
 
 /* END */

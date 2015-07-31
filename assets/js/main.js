@@ -77,7 +77,6 @@ jQuery(document).ready(function () {
 		$(".overlay-close").click();
 	});
 
-
 	/*---------------------------------------------------------*/
 	/*  ACTIVE BUTTON TAB                                      */
 	/*---------------------------------------------------------*/
@@ -86,113 +85,6 @@ jQuery(document).ready(function () {
 		$('.buttons-tab li').removeClass('active');
 		$(this).addClass('active');
 	});
-
-
-	/*---------------------------------------------------------*/
-	/*  CONTACT FORM                                           */
-	/*---------------------------------------------------------*/
-
-	$("#contact").submit(function (e) {
-
-		e.preventDefault();
-		var btn = $('#submit');
-		btn.button('loading');
-		setTimeout(function () {
-
-			btn.button('reset');
-
-			var b = 'border-error';
-			var ap = 'animated-error pulse';
-			var bap = 'border-error animated-error pulse';
-
-			var n = '#name';
-			var name = $("#name").val();
-
-			var e = '#email';
-			var email = $("#email").val();
-
-			var m = '#message';
-			var message = $("#message").val();
-			
-			var dataString = 'name=' + name + '&email=' + email + '&message=' + message;
-
-			function isValidEmail(emailAddress) {
-				var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
-				return pattern.test(emailAddress);
-			}
-
-			if (name.length <= 1) {
-				$(n).addClass(bap);
-				setTimeout(function () {
-					$(n).removeClass(ap);
-				}, 1000);
-			} else { $(n).removeClass(b);}
-
-			if (isValidEmail(email) === false) { $(e).addClass(bap);
-				setTimeout(function () {
-					$(e).removeClass(ap);
-				}, 1000);
-			} else { $(e).removeClass(b);}
-
-			if (message.length <= 1) { $(m).addClass(bap);
-				setTimeout(function () {
-					$(m).removeClass(ap);
-				}, 1000);
-			} else { $(m).removeClass(b);}
-
-			if (isValidEmail(email) && (message.length > 1) && (name.length > 1)) {
-
-				$.ajax({
-					type: "POST",
-					url: "assets/php/sendmail.php",
-					data: dataString,
-					success: function () {
-						$(btn).fadeOut(500);
-						$('.success').fadeIn(1000);
-						$(n,e,m).removeClass(b);
-					}
-				});
-
-			}
-			return false;
-		}, 800);
-
-	});
-
-
-	/*---------------------------------------------------------*/
-	/*  MAILCHIMP SUBSCRIPTION                                 */
-	/*---------------------------------------------------------*/
-
-	$('#subscription').ajaxChimp({
-		callback: callbackFunction,
-		url: MailChimpUrl
-	});
-
-	function callbackFunction (resp) {
-
-		if(resp.result === 'success') {
-			$('.subscription-success')
-				.html('Please check your e-mail to complete the subscription')//resp.msg
-				.fadeIn(500);
-			$('.spam').fadeOut(500);
-			$('.subscription-failed').fadeOut(500);
-
-		} else if(resp.result === 'error') {
-
-			$('#subscription').addClass('animated-error pulse');
-			setTimeout(function () {
-				$('#subscription').removeClass('animated-error pulse');
-			}, 1000);
-			$('.spam').fadeOut('300', function () {
-				$('.subscription-failed')
-				.html('Please enter unsubscribed or valid e-mail address')
-				.fadeIn(1000);
-			});
-			$('.subscription-success').fadeOut(500);
-		}
-	}
-
 
 	/*---------------------------------------------------------*/
 	/*  DECLARE IF IT IS A DEVICE                              */
@@ -336,7 +228,11 @@ function sendMail() {
       }
       }
       }).done(function(response) {
-         console.log(response); // if you're into that sorta thing
+        $('#newsletter article').hide();
+		$('#success-message').show();
+      }).fail(function(){
+      	$('#newsletter article').hide();
+		$('#fail-message').show();
       });
 }
 
