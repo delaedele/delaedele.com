@@ -85,6 +85,10 @@ section {
 	padding: 100px 0;
 }
 
+.justify {
+	text-align:justify;
+}
+
 #capa-bg{
 	position: absolute; 
 	z-index: -1; 
@@ -1725,8 +1729,8 @@ footer .logo img {
 	top: 20px;
 	overflow: hidden;
 	border: none;
-	text-indent: 200%;
-	color: transparent;
+    color: white;
+    background-color: transparent;
 	outline: none;
 	z-index: 100;
 }
