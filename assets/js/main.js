@@ -214,7 +214,7 @@ function sendMail() {
       data: {
       'key': '56ljFfsD9LPL-fFAbMDtTQ',
       'message': {
-      'from_email': 'contato@delaedele.com.br',
+      'from_email': requested_by,
       'to': [
               {
                'email': 'contato@delaedele.com.br',

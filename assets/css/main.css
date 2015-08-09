@@ -2210,4 +2210,34 @@ button.close:hover {
 	color: white;
 }
 
+
+#error{
+    width: 1000px;
+    margin-left: -105px;
+    margin-top: -50px;
+    position: absolute;
+    top: 93%;
+    left: 50%;
+}
+
+#message-error {
+    -moz-border-radius: 5px;
+    border-radius: 25px;
+    width: 20%;
+    padding: 8px 15px;
+    margin-top: 10px;
+    background: rgb(79, 124, 106);
+    font-size: 15px;
+}
+
+#triangle {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 20px 20px 20px;
+    border-color: transparent transparent #4f7c6a transparent;
+    margin-top: -50px;
+    margin-bottom: -10px;
+    margin-left: 81px;
+}
 /* END */
